@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet"/>
-  <link rel="icon" href="logo.ico" type="image/x-icon"/>
+  <link rel="icon" href="images/logo.ico" type="image/x-icon"/>
 
   <style>
     :root {
@@ -28,7 +28,7 @@
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 120%; }
     body {
       background: var(--black);
       color: var(--cream);
@@ -132,7 +132,7 @@
     }
     .hero-name {
       font-family: var(--serif);
-      font-size: clamp(4.5rem, 13vw, 11rem);
+      font-size: clamp(4.0rem, 13vw, 8rem);
       font-weight: 300; letter-spacing: 0.07em;
       color: var(--white); line-height: 0.88;
       margin-bottom: 2rem;
@@ -140,7 +140,7 @@
     }
     .hero-tagline {
       font-family: var(--serif); font-style: italic;
-      font-size: clamp(1rem, 2.2vw, 1.4rem);
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
       color: var(--sand); letter-spacing: 0.04em;
       margin-bottom: 3.5rem;
       opacity: 0; animation: fadeUp 1.4s var(--ease) 0.8s forwards;
@@ -172,6 +172,9 @@
       font-size: 0.6rem; letter-spacing: 0.38em; text-transform: uppercase;
       color: var(--accent); font-family: var(--sans);
     }
+    .tools-block.reveal.d4 {
+  margin-top: 50px;
+}
 
     .reveal {
       opacity: 0;
@@ -619,8 +622,8 @@
     }
     .modal-close:hover { color: var(--white); }
     .modal-media {
-      width: auto; max-width: 90vw;
-      max-height: calc(90vh - 3rem);
+      width: min(95vw, 1100px);
+      max-height: calc(90vh - 12rem);
       background: var(--charcoal); margin-bottom: 2rem;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
@@ -629,7 +632,7 @@
     .modal-media img,
     .modal-media video,
     .modal-media .modal-text {
-      width: auto;
+      width: 100%;
       height: auto;
       max-width: 100%;
       max-height: 100%;
@@ -688,11 +691,9 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span>Visual Artist &amp; Cinematic Editor</span>
-      </div>
+      
       <h1 class="hero-name">Syed Anas Ahmed</h1>
-      <p class="hero-tagline">"Stories told in silence."</p>
+      <p class="hero-tagline">BBA student | Creative thinker | Always evolving</p>
       <div class="hero-scroll">
         <a href="#about" class="scroll-indicator">
           <span>Scroll</span>
@@ -734,14 +735,14 @@
               <div class="edu-dot"></div>
               <div>
                 <div class="edu-name">PES University, Bangalore</div>
-                <div class="edu-detail">Bachelor of Business Administration — 2025 – 2028</div>
+                <div class="edu-detail">Bachelor of Business Administration ·  2025 – 2028</div>
               </div>
             </div>
             <div class="edu-item">
               <div class="edu-dot"></div>
               <div>
                 <div class="edu-name">Sir C.R. Reddy Public School</div>
-                <div class="edu-detail">High School Diploma (10th) · Jul 2021 – 2023</div>
+                <div class="edu-detail">High School Diploma · Jul 2021 – 2023</div>
               </div>
             </div>
             <div class="edu-item">
@@ -752,12 +753,26 @@
               </div>
             </div>
           </div>
-          <div class="about-tags reveal d4">
-            <span class="tag">Cinematic Editing</span>
-            <span class="tag">Photography</span>
-            <span class="tag">Videography</span>
-            <span class="tag">Visual Storytelling</span>
-            <span class="tag">Content Creation</span>
+          <div class="tools-block reveal d4">
+            <div class="edu-label">Software</div>
+            <div class="about-tags">
+              <span class="tag">Premiere Pro</span>
+              <span class="tag">Da Vinci Resolve</span>
+              <span class="tag">Edits by Instagram</span>
+              <span class="tag">Canva</span>
+              <span class="tag">Adobe Express</span>
+            </div>
+          </div>
+
+          <div class="tools-block reveal d4">
+            <div class="edu-label">Skills</div>
+            <div class="about-tags">
+              <span class="tag">Cinematic Editing</span>
+              <span class="tag">Photography</span>
+              <span class="tag">Videography</span>
+              <span class="tag">Visual Storytelling</span>
+              <span class="tag">Content Creation</span>
+            </div>
           </div>
         </div>
       </div>
@@ -787,20 +802,7 @@
          images/photo3.png  ← Still Corners
          images/photo4.png  ← Half Light
          images/photo5.png  ← Fifth Light
-         images/photo1.png  ← Unnamed Hours
-         images/photo2.png  ← Peripheral
-         images/photo3.png  ← Still Corners
-         images/photo4.png  ← Half Light
 
-       VISUAL STORIES (supports .mp4 video):
-         images/story1.mp4        ← Gumnaam (video)
-         images/story1-thumb.png  ← Gumnaam (thumbnail shown on card)
-
-       WRITING (4 images):
-         images/writing1.png  ← Things Left on Windows
-         images/writing2.png  ← Two A.M. Grammar
-         images/writing3.png  ← Letters to No One
-         images/writing4.png  ← Margin Notes
   ══════════════════════════════════════════════════════════ -->
   <section id="portfolio">
     <div class="container">
@@ -810,7 +812,6 @@
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="films">Films &amp; Edits</button>
           <button class="filter-btn" data-filter="photography">Photography</button>
-          <button class="filter-btn" data-filter="writing">Writing</button>
         </div>
       </div>
 
@@ -860,48 +861,6 @@
           </div>
         </div>
 
-        <!-- ── WRITING 1 ───────────────────────────────────────── -->
-        <div class="portfolio-item"
-             data-category="writing"
-             data-modal-title="Har pal, har mod pe"
-             data-modal-desc="A short poem of silence, longing, and unspoken questions."
-             data-modal-media="">
-          <div class="portfolio-thumb">
-            <div class="writing-preview">
-Har pal, har mod pe
-tu udaas hai… na jaane kya raaz hai.
-
-Itni khamoshi, kuch toh baat hai…
-andheri kaali ye raat hai.
-
-Gehre inn sannaton mein
-sirf teri awaaz hai…
-
-Kab tak chup rahega tu bhi?
-insaan khaas hai…
-
-Zinda hoon par jaan laash hai…
-iss khamoshi ka kya raaz hai?
-            </div>
-          </div>
-          <div class="writing-copy" hidden>
-Har pal, har mod pe
-tu udaas hai… na jaane kya raaz hai.
-
-Itni khamoshi, kuch toh baat hai…
-andheri kaali ye raat hai.
-
-Gehre inn sannaton mein
-sirf teri awaaz hai…
-
-Kab tak chup rahega tu bhi?
-insaan khaas hai…
-
-Zinda hoon par jaan laash hai…
-iss khamoshi ka kya raaz hai?
-          </div>
-        </div>
-
         <!-- ── FILM 2 ──────────────────────────────────────────── -->
         <!-- VIDEO: data-modal-media points to images/film2.mp4   -->
         <div class="portfolio-item"
@@ -926,71 +885,100 @@ iss khamoshi ka kya raaz hai?
           </div>
         </div>
 
+        <!-- ── FILM 3 ──────────────────────────────────────────── -->
+        <!-- VIDEO: data-modal-media points to images/film3.mp4   -->
         <div class="portfolio-item"
              data-category="films"
-             data-modal-title="Residue"
-             data-modal-desc="A 4-minute cinematic edit exploring what remains after a person leaves a space — the ghost light on a chair, a half-cup of tea, dust caught in a beam."
+             data-modal-title="After Hours"
+             data-modal-desc="A nocturnal short film about the moments between closing time and sunrise."
              data-modal-media="images/film3.mp4">
-          <!-- THUMBNAIL → images/film2-thumb.png -->
-          <div class="portfolio-thumb" style="background-image:url('images/film2-thumb.png')"></div>
+          <!-- THUMBNAIL → images/film3-thumb.png -->
+          <div class="portfolio-thumb" style="background-image:url('images/film3-thumb.png')"></div>
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
           <div class="portfolio-always">
             <div class="portfolio-cat">Films &amp; Edits</div>
-            <div class="portfolio-title">Residue</div>
+            <div class="portfolio-title">After Hours</div>
           </div>
           <div class="portfolio-overlay">
             <div class="portfolio-cat">Films &amp; Edits</div>
-            <div class="portfolio-title">Residue</div>
-            <div class="portfolio-desc">What a room remembers after a person leaves it.</div>
+            <div class="portfolio-title">After Hours</div>
+            <div class="portfolio-desc">A nocturnal short film about the moments between closing time and sunrise.</div>
+            <div class="portfolio-open">Watch</div>
+          </div>
+        </div>
+
+        <!-- ── FILM 4 ──────────────────────────────────────────── -->
+        <!-- VIDEO: data-modal-media points to images/film4.mp4   -->
+        <div class="portfolio-item"
+             data-category="films"
+             data-modal-title="Night Margin"
+             data-modal-desc="A short edit exploring light at the edges of the city and the people who live there."
+             data-modal-media="images/film4.mp4">
+          <!-- THUMBNAIL → images/film4-thumb.png -->
+          <div class="portfolio-thumb" style="background-image:url('images/film4-thumb.png')"></div>
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <div class="portfolio-always">
+            <div class="portfolio-cat">Films &amp; Edits</div>
+            <div class="portfolio-title">Night Margin</div>
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-cat">Films &amp; Edits</div>
+            <div class="portfolio-title">Night Margin</div>
+            <div class="portfolio-desc">A short edit exploring light at the edges of the city and the people who live there.</div>
+            <div class="portfolio-open">Watch</div>
+          </div>
+        </div>
+
+        <!-- ── FILM 5 ──────────────────────────────────────────── -->
+        <!-- VIDEO: data-modal-media points to images/film5.mp4   -->
+        <div class="portfolio-item"
+             data-category="films"
+             data-modal-title="Last Frame"
+             data-modal-desc="A final frame edit that looks back on endings, goodbyes and the light left behind."
+             data-modal-media="images/film5.mp4">
+          <!-- THUMBNAIL → images/film5-thumb.png -->
+          <div class="portfolio-thumb" style="background-image:url('images/film5-thumb.png')"></div>
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <div class="portfolio-always">
+            <div class="portfolio-cat">Films &amp; Edits</div>
+            <div class="portfolio-title">Last Frame</div>
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-cat">Films &amp; Edits</div>
+            <div class="portfolio-title">Last Frame</div>
+            <div class="portfolio-desc">A final frame edit that looks back on endings, goodbyes and the light left behind.</div>
             <div class="portfolio-open">Watch</div>
           </div>
         </div>
 
         <div class="portfolio-item"
              data-category="films"
-             data-modal-title="Residue"
-             data-modal-desc="A 4-minute cinematic edit exploring what remains after a person leaves a space — the ghost light on a chair, a half-cup of tea, dust caught in a beam."
-             data-modal-media="images/film5.mp4">
-          <!-- THUMBNAIL → images/film2-thumb.png -->
-          <div class="portfolio-thumb" style="background-image:url('images/film2-thumb.png')"></div>
+             data-modal-title="Last Frame"
+             data-modal-desc="A final frame edit that looks back on endings, goodbyes and the light left behind."
+             data-modal-media="images/film6.mp4">
+          <!-- THUMBNAIL → images/film6-thumb.png -->
+          <div class="portfolio-thumb" style="background-image:url('images/film6-thumb.png')"></div>
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
           <div class="portfolio-always">
             <div class="portfolio-cat">Films &amp; Edits</div>
-            <div class="portfolio-title">Residue</div>
+            <div class="portfolio-title">Last Frame</div>
           </div>
           <div class="portfolio-overlay">
             <div class="portfolio-cat">Films &amp; Edits</div>
-            <div class="portfolio-title">Residue</div>
-            <div class="portfolio-desc">What a room remembers after a person leaves it.</div>
+            <div class="portfolio-title">Last Frame</div>
+            <div class="portfolio-desc">A final frame edit that looks back on endings, goodbyes and the light left behind.</div>
             <div class="portfolio-open">Watch</div>
           </div>
         </div>
-        
-        <div class="portfolio-item"
-             data-category="films"
-             data-modal-title="Residue"
-             data-modal-desc="A 4-minute cinematic edit exploring what remains after a person leaves a space — the ghost light on a chair, a half-cup of tea, dust caught in a beam."
-             data-modal-media="images/film4.mp4">
-          <!-- THUMBNAIL → images/film2-thumb.png -->
-          <div class="portfolio-thumb" style="background-image:url('images/film2-thumb.png')"></div>
-          <div class="play-icon">
-            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <div class="portfolio-always">
-            <div class="portfolio-cat">Films &amp; Edits</div>
-            <div class="portfolio-title">Residue</div>
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-cat">Films &amp; Edits</div>
-            <div class="portfolio-title">Residue</div>
-            <div class="portfolio-desc">What a room remembers after a person leaves it.</div>
-            <div class="portfolio-open">Watch</div>
-          </div>
-        </div>
+
 
         <!-- ── PHOTOGRAPHY 2 ──────────────────────────────────── -->
         <!-- IMAGE → images/photo2.png                            -->
@@ -1032,60 +1020,6 @@ iss khamoshi ka kya raaz hai?
           </div>
         </div>
 
-        <!-- ── WRITING 2 ───────────────────────────────────────── -->
-        <div class="portfolio-item"
-             data-category="writing"
-             data-modal-title="Na jaane dil mein kyun"
-             data-modal-desc="An intimate poem about heartbreak, memory, and the quiet that remains."
-             data-modal-media="">
-          <div class="portfolio-thumb">
-            <div class="writing-preview">
-Na jaane dil mein kyun khataas hai…
-itni khamoshi ki dil madhosh ho gaya.
-
-Jo sapne the, unko yun hi mod diya,
-woh jo ek pyaar tha, usko bhi chhod diya.
-
-Khwabon bane the, unko bhi tod diya,
-jo yaari bhi itni pyaari thi, par diya…
-
-Ab sirf shayari aur diary hi rahi,
-dil hai toh dhadakta nahi… ab main?
-
-Woh nahi jo pehle tha kabhi…
-phir bhi zinda mere jazbaat hain.
-Iss khamoshi ka kya raaz hai?
-            </div>
-          </div>
-          <div class="portfolio-always">
-            <div class="portfolio-cat">Writing</div>
-            <div class="portfolio-title">Na jaane dil mein kyun</div>
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-cat">Writing</div>
-            <div class="portfolio-title">Na jaane dil mein kyun</div>
-            <div class="portfolio-desc">A poem of broken dreams and quiet ache.</div>
-            <div class="portfolio-open">Read</div>
-          </div>
-          <div class="writing-copy" hidden>
-Na jaane dil mein kyun khataas hai…
-itni khamoshi ki dil madhosh ho gaya.
-
-Jo sapne the, unko yun hi mod diya,
-woh jo ek pyaar tha, usko bhi chhod diya.
-
-Khwabon bane the, unko bhi tod diya,
-jo yaari bhi itni pyaari thi, par diya…
-
-Ab sirf shayari aur diary hi rahi,
-dil hai toh dhadakta nahi… ab main?
-
-Woh nahi jo pehle tha kabhi… 
-phir bhi zinda mere jazbaat hain.
-Iss khamoshi ka kya raaz hai?
-          </div>
-        </div>
-
         <!-- ── PHOTOGRAPHY 4 ──────────────────────────────────── -->
         <!-- IMAGE → images/photo4.png                            -->
         <div class="portfolio-item"
@@ -1111,7 +1045,7 @@ Iss khamoshi ka kya raaz hai?
         <div class="portfolio-item"
              data-category="photography"
              data-modal-title="Fifth Light"
-             data-modal-desc="A fifth photograph that completes the series of late hour frames."
+             data-modal-desc="A fifth photograph that completes the late hour series."
              data-modal-media="images/photo5.png">
           <div class="portfolio-thumb" style="background-image:url('images/photo5.png')"></div>
           <div class="portfolio-always">
@@ -1121,63 +1055,14 @@ Iss khamoshi ka kya raaz hai?
           <div class="portfolio-overlay">
             <div class="portfolio-cat">Photography</div>
             <div class="portfolio-title">Fifth Light</div>
-            <div class="portfolio-desc">A fifth photograph that completes the series of late hour frames.</div>
+            <div class="portfolio-desc">A fifth photograph that completes the late hour series.</div>
             <div class="portfolio-open">View Project</div>
           </div>
         </div>
 
-        <!-- ── WRITING 3 ───────────────────────────────────────── -->
-        <div class="portfolio-item"
-             data-category="writing"
-             data-modal-title="Kabhi hum dukh mein"
-             data-modal-desc="A hopeful poem about quiet days and the choice to live through mistakes."
-             data-modal-media="">
-          <div class="portfolio-thumb">
-            <div class="writing-preview">
-Kabhi hum dukh mein rehte the,
-shayad aaj sukh se rehne lage.
-Kabhi kadakti dhoop mein jeene,
-ab galtiyon se kuch seekhne lage.
+        
 
-Na jaane kyun, us pal ko jeete,
-khamoshi thi kyunki 
-khushi ki wajah nahi thi…
-sirf tanhaayi saza thi khud hi.
-
-Raaz doob gaye jaise samandar mein,
-aa jeele apne andar mein.
-Ab hai waqt jeene ka, na ki apni
-galtiyon ko seene ka…
-aa dhoondte raaz teri khushi hone ka.
-            </div>
-          </div>
-          <div class="portfolio-always">
-            <div class="portfolio-cat">Writing</div>
-            <div class="portfolio-title">Kabhi hum dukh mein</div>
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-cat">Writing</div>
-            <div class="portfolio-title">Kabhi hum dukh mein</div>
-            <div class="portfolio-desc">A poem about learning from silence and living again.</div>
-            <div class="portfolio-open">Read</div>
-          </div>
-          <div class="writing-copy" hidden>
-Kabhi hum dukh mein rehte the,
-shayad aaj sukh se rehne lage.
-Kabhi kadakti dhoop mein jeene,
-ab galtiyon se kuch seekhne lage.
-
-Na jaane kyun, us pal ko jeete,
-khamoshi thi kyunki khushi ki wajah nahi thi…
-sirf tanhaayi saza thi khud hi.
-
-Raaz doob gaye jaise samandar mein,
-aa jeele apne andar mein.
-Ab hai waqt jeene ka, na ki apni
-galtiyon ko seene ka…
-aa dhoondte raaz teri khushi hone ka.
-          </div>
-        </div>
+        
 
       </div>
     </div>
