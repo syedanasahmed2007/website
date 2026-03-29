@@ -94,15 +94,19 @@
 
     @media(max-width:768px) {
       nav { padding: 1.5rem 1.5rem; }
-      .hamburger { display: flex; z-index: 1001; }
+      .hamburger { display: flex; z-index: 10001; position: relative; }
       .nav-links {
         display: none; position: fixed; inset: 0;
         background: #080808; flex-direction: column;
-        align-items: center; justify-content: center; gap: 2.5rem; z-index: 9999;
+        align-items: center; justify-content: center; gap: 2.5rem; z-index: 10000;
         opacity: 1; isolation: isolate;
       }
       .nav-links.open { display: flex; }
       .nav-links.open a { font-size: 1rem; letter-spacing: 0.2em; color: var(--cream); }
+      /* Animate hamburger → X when menu is open */
+      .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
     }
 
     /* ── HERO ── */
@@ -1104,30 +1108,6 @@ iss khamoshi ka kya raaz hai?</p>
           <div class="poem-block reveal d1">
             <span class="poem-num">III</span>
             <p class="poem-text"> 
-Kabhi hum dukh mein rehte the,shayad aaj sukh se rehne lage.
-Kabhi kadakti dhoop mein jeene,
-ab galtiyon se kuch seekhne lage.
-
-Na jaane kyun, us pal ko jeete,
-khamoshi thi kyunki khushi ki wajah nahi thi…
-sirf tanhaayi saza thi khud hi.
-
-Raaz doob gaye jaise samandar mein,
-aa jeele apne andar mein.
-
-Ab hai waqt jeene ka, na ki apni
-galtiyon ko seene ka…
-aa dhoondte raaz teri khushi hone ka.</p>
-          </div>
-
-        </div>
-
-        <!-- RIGHT COLUMN — poems III & IV -->
-        <div>
-
-          <div class="poem-block reveal d2">
-            <span class="poem-num">II</span>
-            <p class="poem-text">
 Na jaane dil mein kyun khataas hai…
 itni khamoshi ki dil madhosh ho gaya.
 
@@ -1143,7 +1123,31 @@ dil hai toh dhadakta nahi… ab main?
 Woh nahi jo pehle tha kabhi…
 phir bhi zinda mere jazbaat hain.
 Iss khamoshi ka kya raaz hai?
-              
+</p>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN — poems III & IV -->
+        <div>
+
+          <div class="poem-block reveal d2">
+            <span class="poem-num">II</span>
+            <p class="poem-text">
+Kabhi hum dukh mein rehte the,shayad aaj sukh se rehne lage.
+Kabhi kadakti dhoop mein jeene,
+ab galtiyon se kuch seekhne lage.
+
+Na jaane kyun, us pal ko jeete,
+khamoshi thi kyunki khushi ki wajah nahi thi…
+sirf tanhaayi saza thi khud hi.
+
+Raaz doob gaye jaise samandar mein,
+aa jeele apne andar mein.
+
+Ab hai waqt jeene ka, na ki apni
+galtiyon ko seene ka…
+aa dhoondte raaz teri khushi hone ka.              
               </p>
           </div>
 
@@ -1209,10 +1213,10 @@ Maslan mujhe kuch kehne ke rahi ho.</p>
           <p class="contact-tagline reveal d2">— For quick responses, reach out on Instagram,<br/>collaborations, commissions, or just a conversation</p>
         </div>
         <div class="contact-links reveal d2">
-          <a href="/cdn-cgi/l/email-protection#b5c6ccd0d1d4dbd4c6d4ddd8d0d1878582f5d2d8d4dcd99bd6dad8" class="contact-link">
+          <a href="mailto:syedanasahmed207@gmail.com" class="contact-link">
   <div class="contact-link-inner">
     <span class="contact-link-label">Email</span>
-    <span class="contact-link-value"><span class="__cf_email__" data-cfemail="b9cac0dcddd8d7d8cad8d1d4dcdd8b898ef9ded4d8d0d597dad6d4">[email&#160;protected]</span></span>
+    <span class="contact-link-value">syedanasahmed207@gmail.com</span>
   </div>
   <span class="contact-arrow">→</span>
 </a>
@@ -1282,8 +1286,14 @@ Maslan mujhe kuch kehne ke rahi ho.</p>
     /* ── Hamburger ── */
     const burger   = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-    burger.addEventListener('click', ()=> navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a=> a.addEventListener('click',()=> navLinks.classList.remove('open')));
+    burger.addEventListener('click', ()=> {
+      navLinks.classList.toggle('open');
+      burger.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a=> a.addEventListener('click',()=> {
+      navLinks.classList.remove('open');
+      burger.classList.remove('open');
+    }));
 
     /* ── Nav scroll ── */
     const mainNav = document.getElementById('mainNav');
