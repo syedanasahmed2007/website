@@ -93,21 +93,38 @@
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
     .hamburger span { display: block; width: 22px; height: 1px; background: var(--cream); transition: all 0.3s; }
 
+    /* ── MOBILE MENU OVERLAY ── */
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: #080808;
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 2147483647; /* max possible z-index */
+      list-style: none;
+    }
+    .mobile-menu-overlay.open { display: flex; }
+    .mobile-menu-overlay ul {
+      list-style: none; display: flex; flex-direction: column;
+      align-items: center; gap: 2.5rem; padding: 0; margin: 0;
+    }
+    .mobile-menu-overlay ul a {
+      font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--cream); text-decoration: none;
+      font-family: var(--sans); font-weight: 300;
+    }
+
     @media(max-width:768px) {
       nav { padding: 1.5rem 1.5rem; }
-      .hamburger { display: flex; z-index: 1000001; position: relative; }
-      .nav-links {
-        display: none; position: fixed; inset: 0;
-        background: #080808; flex-direction: column;
-        align-items: center; justify-content: center; gap: 2.5rem; z-index: 1000000;
-        opacity: 1;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links.open a { font-size: 1rem; letter-spacing: 0.2em; color: var(--cream); }
+      .hamburger { display: flex; z-index: 2147483647; position: relative; }
+      .nav-links-desktop { display: none !important; }
       /* Animate hamburger → X when menu is open */
       .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
       .hamburger.open span:nth-child(2) { opacity: 0; }
       .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    }
+    @media(min-width:769px) {
+      .mobile-menu-overlay { display: none !important; }
     }
 
     /* ── HERO ── */
@@ -623,7 +640,7 @@
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links" id="navLinks">
+    <ul class="nav-links nav-links-desktop">
       <li><a href="#about">About</a></li>
       <li><a href="#portfolio">Work</a></li>
       <li><a href="#clubwork">Club</a></li>
@@ -633,6 +650,20 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+
+  <!-- ══ MOBILE MENU OVERLAY (outside nav to avoid stacking context trap) ══ -->
+
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#clubwork">Club</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#poetry">Poetry</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- ══ HERO ══ -->
 
@@ -783,7 +814,7 @@ Still becoming.</p>
         </div>
       </div>
 
-```
+
   <div class="portfolio-grid reveal d1">
 
     <!-- FILM 1 -->
@@ -992,7 +1023,7 @@ Still becoming.</p>
 
   </div><!-- end .portfolio-grid -->
 </div>
-```
+
 
   </section>
 
@@ -1045,9 +1076,9 @@ Still becoming.</p>
     </div>
   </section>
 
-```
+
 <!-- ══ SERVICES ══ -->
-```
+
 
   <section id="services">
     <div class="container">
@@ -1087,7 +1118,7 @@ Still becoming.</p>
         Words that arrive<br/>before the <em style="font-style:italic;color:var(--sand);">frame.</em>
       </h2>
 
-```
+
   <div class="poetry-cols">
 
     <!-- LEFT COLUMN — poems I & III -->
@@ -1096,8 +1127,6 @@ Still becoming.</p>
       <div class="poem-block reveal">
         <span class="poem-num">I</span>
         <p class="poem-text">
-```
-
 Har pal, har mod pe
 tu udaas hai… na jaane kya raaz hai.
 
@@ -1114,12 +1143,10 @@ Zinda hoon par jaan laash hai…
 iss khamoshi ka kya raaz hai?</p>
 </div>
 
-```
+
       <div class="poem-block reveal d1">
         <span class="poem-num">III</span>
         <p class="poem-text"> 
-```
-
 Na jaane dil mein kyun khataas hai…
 itni khamoshi ki dil madhosh ho gaya.
 
@@ -1135,11 +1162,10 @@ dil hai toh dhadakta nahi… ab main?
 Woh nahi jo pehle tha kabhi…
 phir bhi zinda mere jazbaat hain.
 Iss khamoshi ka kya raaz hai?
-
 </p>
           </div>
 
-```
+
     </div>
 
     <!-- RIGHT COLUMN — poems II & IV -->
@@ -1148,8 +1174,6 @@ Iss khamoshi ka kya raaz hai?
       <div class="poem-block reveal d2">
         <span class="poem-num">II</span>
         <p class="poem-text">
-```
-
 Kabhi hum dukh mein rehte the,shayad aaj sukh se rehne lage.
 Kabhi kadakti dhoop mein jeene,
 ab galtiyon se kuch seekhne lage.
@@ -1167,24 +1191,21 @@ aa dhoondte raaz teri khushi hone ka.
 </p>
 </div>
 
-```
+
       <div class="poem-block reveal d3">
         <span class="poem-num">IV</span>
-        <p class="poem-text">Khamoshi ke andar bhi ek awaaz aati…
-```
-
+        <p class="poem-text">
+Khamoshi ke andar bhi ek awaaz aati…
 Dil mein dhaki si chalti mitti si nami si kuch
 
 Baithe ko bhi maqtal dar kar ke kehti
 Maslan mujhe kuch kehne ke rahi ho.</p>
 </div>
-
-```
     </div>
 
   </div><!-- end .poetry-cols -->
 </div>
-```
+
 
   </section>
 
@@ -1308,14 +1329,14 @@ Maslan mujhe kuch kehne ke rahi ho.</p>
     });
 
     /* ── Hamburger ── */
-    const burger   = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+    const burger     = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
     burger.addEventListener('click', ()=> {
-      navLinks.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
       burger.classList.toggle('open');
     });
-    navLinks.querySelectorAll('a').forEach(a=> a.addEventListener('click',()=> {
-      navLinks.classList.remove('open');
+    mobileMenu.querySelectorAll('a').forEach(a=> a.addEventListener('click',()=> {
+      mobileMenu.classList.remove('open');
       burger.classList.remove('open');
     }));
 
