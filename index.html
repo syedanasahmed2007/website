@@ -46,10 +46,6 @@
       opacity: 0.03; pointer-events: none; z-index: 9998;
     }
 
-    body.menu-open {
-  overflow: hidden;
-}
-
     /* ── CUSTOM CURSOR ── */
     .cursor {
       position: fixed; width: 7px; height: 7px;
@@ -73,7 +69,7 @@
 
     /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
       padding: 1.8rem 4rem;
       display: flex; justify-content: space-between; align-items: center;
       background: linear-gradient(to bottom, rgba(8,8,8,0.95) 0%, transparent 100%);
@@ -85,22 +81,7 @@
       letter-spacing: 0.35em; text-transform: uppercase;
       color: var(--cream); text-decoration: none; font-weight: 300;
     }
-    .nav-links {
-  position: fixed;
-  inset: 0;
-  background: var(--black);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-
-  z-index: 999;
-}
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
       font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
       color: var(--mist); text-decoration: none;
@@ -112,41 +93,17 @@
     .hamburger span { display: block; width: 22px; height: 1px; background: var(--cream); transition: all 0.3s; }
 
     @media(max-width:768px) {
-  nav { padding: 1.5rem 1.5rem; }
-
-  .hamburger {
-    display: flex;
-    z-index: 1001;
-  }
-
-  .nav-links {
-    position: fixed;
-    inset: 0;
-    background: var(--black);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-
-    z-index: 999;
-  }
-
-  .nav-links.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .nav-links.open a {
-    font-size: 1rem;
-    letter-spacing: 0.2em;
-    color: var(--cream);
-  }
-}
+      nav { padding: 1.5rem 1.5rem; }
+      .hamburger { display: flex; z-index: 1001; }
+      .nav-links {
+        display: none; position: fixed; inset: 0;
+        background: #080808; flex-direction: column;
+        align-items: center; justify-content: center; gap: 2.5rem; z-index: 9999;
+        opacity: 1; isolation: isolate;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links.open a { font-size: 1rem; letter-spacing: 0.2em; color: var(--cream); }
+    }
 
     /* ── HERO ── */
     #hero {
@@ -1252,10 +1209,10 @@ Maslan mujhe kuch kehne ke rahi ho.</p>
           <p class="contact-tagline reveal d2">— For quick responses, reach out on Instagram,<br/>collaborations, commissions, or just a conversation</p>
         </div>
         <div class="contact-links reveal d2">
-          <a href="mailto:syedanasahmed207@gmail.com" class="contact-link">
+          <a href="/cdn-cgi/l/email-protection#b5c6ccd0d1d4dbd4c6d4ddd8d0d1878582f5d2d8d4dcd99bd6dad8" class="contact-link">
   <div class="contact-link-inner">
     <span class="contact-link-label">Email</span>
-    <span class="contact-link-value">syedanasahmed207@gmail.com</span>
+    <span class="contact-link-value"><span class="__cf_email__" data-cfemail="b9cac0dcddd8d7d8cad8d1d4dcdd8b898ef9ded4d8d0d597dad6d4">[email&#160;protected]</span></span>
   </div>
   <span class="contact-arrow">→</span>
 </a>
@@ -1303,7 +1260,7 @@ Maslan mujhe kuch kehne ke rahi ho.</p>
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     /* ── Custom cursor ── */
     const cur  = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
@@ -1325,16 +1282,9 @@ Maslan mujhe kuch kehne ke rahi ho.</p>
     /* ── Hamburger ── */
     const burger   = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-    burger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  document.body.classList.toggle('menu-open');
-});
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    document.body.classList.remove('menu-open'); // 🔥 THIS FIXES FREEZE
-  });
-});
+    burger.addEventListener('click', ()=> navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a=> a.addEventListener('click',()=> navLinks.classList.remove('open')));
+
     /* ── Nav scroll ── */
     const mainNav = document.getElementById('mainNav');
     window.addEventListener('scroll',()=>{
@@ -1432,6 +1382,7 @@ navLinks.querySelectorAll('a').forEach(a => {
       });
     }, { threshold: [0.45] });
     videoItems.forEach(item => scrollObs.observe(item));
+
 
     modalClose.addEventListener('click', closeModal);
     modal.addEventListener('click', e=>{ if(e.target === modal) closeModal(); });
