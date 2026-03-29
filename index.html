@@ -37,6 +37,9 @@
       overflow-x: hidden;
       cursor: none;
     }
+    body.menu-open {
+  overflow: hidden;
+}
     ::selection { background: var(--accent); color: var(--black); }
 
     body::before {
@@ -1264,7 +1267,7 @@ Maslan mujhe kuch kehne ke rahi ho.</p>
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     /* ── Custom cursor ── */
     const cur  = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
@@ -1287,9 +1290,12 @@ Maslan mujhe kuch kehne ke rahi ho.</p>
     const burger   = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     burger.addEventListener('click', ()=> {
-      navLinks.classList.toggle('open');
-      burger.classList.toggle('open');
-    });
+  navLinks.classList.toggle('open');
+  burger.classList.toggle('open');
+
+  // 👇 ADD THIS
+  document.body.classList.toggle('menu-open');
+});
     navLinks.querySelectorAll('a').forEach(a=> a.addEventListener('click',()=> {
       navLinks.classList.remove('open');
       burger.classList.remove('open');
